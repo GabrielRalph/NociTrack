@@ -3,12 +3,16 @@ import { Question } from "./Question.js";
 export class Assessment {
   constructor({
     id = null,
+    title = "",
     description = "",
+    version = "",
     questions = [],
     questionIndex = 0,
   } = {}) {
     this.id = id;
+    this.title = title;
     this.description = description;
+    this.version = version;
 
     this.questions = questions.map((q) =>
       q instanceof Question ? q : new Question(q),

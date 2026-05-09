@@ -1,0 +1,216 @@
+{
+  "id": "pain-inference",
+  "title": "Pain Inference Questionnaire",
+  "description": "In the past week, how much has pain gotten in the way with:",
+  "version": "1.0",
+  "questions": [
+    {
+      "id": 1,
+      "question": "Sleep",
+      "imageUrl": null,
+      "responseType": "likert",
+      "scale": {
+        "step": 1,
+        "min": 0,
+        "max": 4,
+        "labels": {
+          "0": "Not at all",
+          "2": "A bit",
+          "4": "A lot"
+        }
+      }
+    },
+    {
+      "id": 2,
+      "question": "Everyday activities",
+      "imageUrl": null,
+      "responseType": "likert",
+      "scale": {
+        "step": 1,
+        "min": 0,
+        "max": 4,
+        "labels": {
+          "0": "Not at all",
+          "2": "A bit",
+          "4": "A lot"
+        }
+      }
+    },
+    {
+      "id": 3,
+      "question": "Mood",
+      "imageUrl": null,
+      "responseType": "likert",
+      "scale": {
+        "step": 1,
+        "min": 0,
+        "max": 4,
+        "labels": {
+          "0": "Not at all",
+          "2": "A bit",
+          "4": "A lot"
+        }
+      }
+    },
+    {
+      "id": 4,
+      "question": "School/Work",
+      "imageUrl": null,
+      "responseType": "likert",
+      "scale": {
+        "step": 1,
+        "min": 0,
+        "max": 4,
+        "labels": {
+          "0": "Not at all",
+          "2": "A bit",
+          "4": "A lot"
+        }
+      }
+    },
+    {
+      "id": 5,
+      "question": "Things I do for fun",
+      "imageUrl": null,
+      "responseType": "likert",
+      "scale": {
+        "step": 1,
+        "min": 0,
+        "max": 4,
+        "labels": {
+          "0": "Not at all",
+          "2": "A bit",
+          "4": "A lot"
+        }
+      }
+    },
+    {
+      "id": 6,
+      "question": "Looking after myself",
+      "imageUrl": null,
+      "responseType": "likert",
+      "scale": {
+        "step": 1,
+        "min": 0,
+        "max": 4,
+        "labels": {
+          "0": "Not at all",
+          "2": "A bit",
+          "4": "A lot"
+        }
+      }
+    },
+    {
+      "id": 7,
+      "question": "Learning new things",
+      "imageUrl": null,
+      "responseType": "likert",
+      "scale": {
+        "step": 1,
+        "min": 0,
+        "max": 4,
+        "labels": {
+          "0": "Not at all",
+          "2": "A bit",
+          "4": "A lot"
+        }
+      }
+    },
+    {
+      "id": 8,
+      "question": "Getting along with others",
+      "imageUrl": null,
+      "responseType": "likert",
+      "scale": {
+        "step": 1,
+        "min": 0,
+        "max": 4,
+        "labels": {
+          "0": "Not at all",
+          "2": "A bit",
+          "4": "A lot"
+        }
+      }
+    },
+    {
+      "id": 9,
+      "question": "Communicating with others",
+      "imageUrl": null,
+      "responseType": "likert",
+      "scale": {
+        "step": 1,
+        "min": 0,
+        "max": 4,
+        "labels": {
+          "0": "Not at all",
+          "2": "A bit",
+          "4": "A lot"
+        }
+      }
+    },
+    {
+      "id": 10,
+      "question": "Having fun",
+      "imageUrl": null,
+      "responseType": "likert",
+      "scale": {
+        "step": 1,
+        "min": 0,
+        "max": 4,
+        "labels": {
+          "0": "Not at all",
+          "2": "A bit",
+          "4": "A lot"
+        }
+      }
+    },
+    {
+      "id": 11,
+      "question": "Spending time with friends and family",
+      "imageUrl": null,
+      "responseType": "likert",
+      "scale": {
+        "step": 1,
+        "min": 0,
+        "max": 4,
+        "labels": {
+          "0": "Not at all",
+          "2": "A bit",
+          "4": "A lot"
+        }
+      }
+    },
+    {
+      "id": 12,
+      "question": "Getting around",
+      "imageUrl": null,
+      "responseType": "likert",
+      "scale": {
+        "step": 1,
+        "min": 0,
+        "max": 4,
+        "labels": {
+          "0": "Not at all",
+          "2": "A bit",
+          "4": "A lot"
+        }
+      }
+    },
+    {
+      "id": 13,
+      "question": "My favourite thing to do: _________",
+      "imageUrl": null,
+      "responseType": "likert",
+      "scale": {
+        "step": 1,
+        "min": 0,
+        "max": 4,
+        "labels": {
+          "0": "Not at all",
+          "2": "A bit",
+          "4": "A lot"
+        }
+      }
+    }
+  ]
+}
