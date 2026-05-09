@@ -1,4 +1,5 @@
 export class Question {
+  /** Create a question from question-bank data. */
   constructor({
     id = null,
     question = null,
@@ -13,21 +14,5 @@ export class Question {
     this.base64 = base64;
     this.responseType = responseType;
     this.scale = scale;
-
-    this.answerValue = null;
-  }
-  // answer the question with a value
-  answer(value) {
-    this.answerValue = value;
-    return this.answerValue;
-  }
-  // check if the question has been answered
-  isAnswered() {
-    return this.answerValue !== null;
-  }
-
-  // transform raw javascript object into a Question instance
-  static fromData(data = {}) {
-    return new Question(data);
   }
 }
