@@ -64,9 +64,6 @@ class PainManagementApp {
       this.answersPayload = value;
     });
 
-    SquidlyAPI.firebaseOnValue("questionIndex", (value) => {
-      this.questionIndex = value;
-    });
 
     this.assessmentIndex = await this.assessmentRepo.fetchAssessmentIndex(this.source);
     this.requestRender();
@@ -89,10 +86,13 @@ class PainManagementApp {
     this.#answerPayload = object;
     if (this.assessment && object && object.assessmentId === this.assessment.id) {
       this.assessment.answers = Assessment.answers_parser(object.answers)
+      this.assessment.questionIndex = object.questionIndex || 0;
     }
+
     if (string !== this.#answerPayloadJSON) {
         this.requestRender();
     }
+
     this.#answerPayloadJSON = string;
   }
   get answersPayload() {
@@ -106,12 +106,9 @@ class PainManagementApp {
     this.#assessment = value;
     if (this.#assessment && this.answersPayload && this.answersPayload.assessmentId === this.#assessment.id) {
       this.assessment.answers = Assessment.answers_parser(this.answersPayload.answers)
+      this.assessment.questionIndex = this.answersPayload.questionIndex || 0;
     }
-    if (this.#lastQuestionIndex !== null && value && this.#lastQuestionIndex !== value.questionIndex) {
-      value.questionIndex = this.#lastQuestionIndex;
-      changed = true;
-    }
-
+ 
     if (changed) {
       this.requestRender();
     }
@@ -145,12 +142,12 @@ class PainManagementApp {
         SquidlyAPI.firebaseSet("assessmentId", id);
         SquidlyAPI.firebaseSet("assessmentAnswers", "");
         SquidlyAPI.firebaseSet("state", STATE_ASSESSMENT);
-        SquidlyAPI.firebaseSet("questionIndex", 0);
       },
       onAnswer: (e, value) => {
         if (!this.assessment) return;
         this.assessment.answerCurrentQuestion(value);
-        this.syncAnswers();
+        this.answersPayload = this.assessment.toAnswerPayload();
+        SquidlyAPI.firebaseSet("assessmentAnswers", this.answersPayloadJSON);
       },
       onGoHome: (e) => {
         this.state = STATE_MENU;
@@ -159,32 +156,25 @@ class PainManagementApp {
         this.answersPayload = null;
         SquidlyAPI.firebaseSet("assessmentId", "");
         SquidlyAPI.firebaseSet("assessmentAnswers", "");
-        SquidlyAPI.firebaseSet("questionIndex", 0);
         SquidlyAPI.firebaseSet("state", STATE_MENU);
         this.requestRender();
       },
       onMoveQuestion: (e, step)  => {
         if (this.state !== STATE_ASSESSMENT || !this.assessment) return;
         this.assessment.moveQuestion(step);
-        SquidlyAPI.firebaseSet("questionIndex", this.assessment.questionIndex);
-        this.syncAnswers();
+        this.answersPayload = this.assessment.toAnswerPayload();
+        SquidlyAPI.firebaseSet("assessmentAnswers", this.answersPayloadJSON);
         this.requestRender();
       },
       onShowResult: (e) => {
         this.state = STATE_RESULT;
         SquidlyAPI.firebaseSet("state", STATE_RESULT);
-        SquidlyAPI.firebaseSet("questionIndex", 0);
         this.requestRender();
       },
     }
     return new (STATE_VIEWS[state] || STATE_VIEWS.default)(viewData);
   }
-
-  syncAnswers() {
-    if (!this.assessment) return;
-    this.answersPayload = this.assessment.toAnswerPayload();
-    SquidlyAPI.firebaseSet("assessmentAnswers", this.answersPayloadJSON);
-  }
+ 
 }
 
 const app = new PainManagementApp();
