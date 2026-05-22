@@ -69,6 +69,22 @@ class Scale extends DataClass {
 
     /** @type {number} */
     step = 1;
+
+    /** @type {string[]} */
+    options = [];
+    static options_parser(o) { return Array.isArray(o) ? [...o] : [] }
+
+
+    get values() {
+        let values = this.options;
+        if (this.options.length === 0) {
+            const { min, max, step } = this;
+            for (let v = min; v <= max; v += step) {
+                values.push(v);
+            }
+        }
+        return values;
+    }
 }
 
 
@@ -121,8 +137,9 @@ class Question extends DataClass {
     /**@type {string} */
     responseType = "likert";
 
-    /**@type {Object|null} */
+    /**@type {Scale} */
     scale = null;
+    static scale_parser(s) { return s ? Scale.make(s) : null }
 
 
     get utterance() {

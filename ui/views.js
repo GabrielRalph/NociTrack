@@ -12,6 +12,13 @@ class NociButton extends GridIcon {
     constructor(info, g) {
         info.type = {theme: info.theme || "noci", card: false}
         super(info, g)
+
+        this.displayValueElement?.adjustFS();
+    }
+
+    onresize(...args) {
+        super.onresize(...args);
+        this.displayValueElement?.adjustFS();
     }
 
     set selected(bool) {
@@ -27,9 +34,9 @@ class QuestionOptions extends SvgPlus {
     
         const options = {}
         if (question?.scale) {
-            const { min, max, step } = question.scale;
-            for (let v = min; v <= max; v += step) {
+            const values = question.scale.values;
 
+            for (let v of values) {
                 // Create label if it exists for this value
                 let label = null;
                 if (question.scale.labels?.[v]) {

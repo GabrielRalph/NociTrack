@@ -12,6 +12,34 @@
   },
   "questions": [
     {
+      "id": 1.25,
+      "question": "What location are you reporting the pain from?",
+      "imageUrl": "images/location.png",
+      "scale": {
+        "options": [
+          "school/work",
+          "home",
+          "clinical appointment",
+          "community outing",
+          "other"
+        ]
+      }
+    },
+    {
+      "id": 1.5,
+      "question": "What treatment is being done?",
+      "imageUrl": "images/treatment.png",
+      "scale":{
+        "options": [
+          "medication",
+          "therapy session",
+          "hospital admission",
+          "none",
+          "other" 
+        ]
+      }
+    },
+    {
       "id": 1,
       "question": "In the past week, how much has pain gotten in the way with: Sleep",
       "imageUrl": "images/pi-1.png",
