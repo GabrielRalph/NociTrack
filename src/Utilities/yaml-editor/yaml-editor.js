@@ -86,7 +86,7 @@ export class YAMLEditor extends ShadowElement {
   }
 
 	set value(value) {
-		if (this.value !== value) {
+		if (value.trim() !== this.value.trim()) {
 			this.context.setValue(value, -1);
 		}
 	}

@@ -48,11 +48,13 @@ async function load() {
         new Promise(r => {
             firebase.addAuthChangeListener(user => {
                 document.body.toggleAttribute("show-login", !user);
+
                 if (oldListener) {
                     oldListener();
                     oldListener = null;
                 }
                 if (user) {
+                    console.log("User logged in", user);
                     oldListener = firebase.onValue(firebase.ref("noci-track"), snapshot => {
                         const data = snapshot.val() || {};
                         const assessments = data.assessments || {};
@@ -67,8 +69,7 @@ async function load() {
         LoginPage.loadStyleSheets(),
     ]);
 
-    console.log("Loaded", user);
-
+    
     document.body.toggleAttribute("loaded", true);
 }
 load();

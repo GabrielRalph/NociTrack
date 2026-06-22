@@ -78,13 +78,13 @@ export class NociCMS extends ShadowElement {
                         this.#changed = isChange;
                         this.triggerAutoSave();
                     } catch (e) {
-                        console.log(e)
-                        console.log("Invalid assessment", e.message);
                         this.#assessment = null;
                         this.#assessmentYAML = null;
                         this.editor.toggleAttribute("invalid", true);
                         this.editor.toggleAttribute("no-change", false);
                         this.#changed = true;
+                        console.log("Invalid assessment, assessment must have a title.");
+                        this.yamlEditor.showError(1,1,`Invalid assessment, assessment must have a title.`);
                     }
                 }
             }
@@ -188,6 +188,7 @@ export class NociCMS extends ShadowElement {
             this.editor.toggleAttribute("no-change", false);
             this.editor.toggleAttribute("invalid", true);
             this.editor.toggleAttribute("new-file", true);
+            this.root.setAttribute("mode", "editor");
         }
     }
 
