@@ -1,0 +1,53 @@
+import {
+  require_typescript
+} from "../chunk-J44LI5FA.js";
+import "../chunk-SKWA5SCJ.js";
+import {
+  require_javascript,
+  require_javascript2
+} from "../chunk-WK3XC3NH.js";
+import "../chunk-U2RKG7VZ.js";
+import "../chunk-IWXN4N2Q.js";
+import "../chunk-5GQPFTLG.js";
+import "../chunk-67VAGNRS.js";
+import "../chunk-5O3J7W3G.js";
+import "../chunk-JEWW6F7O.js";
+import "../chunk-LMYBRGOM.js";
+import "../chunk-VVYM7U3C.js";
+import "../chunk-GLBKRGPE.js";
+import "../chunk-7QZ52OVG.js";
+import "../chunk-V24LW3SD.js";
+import "../chunk-BPTL7YIQ.js";
+import "../chunk-MF4T7I5J.js";
+import {
+  require_oop
+} from "../chunk-WAWTRYJW.js";
+import "../chunk-MUUMEFKV.js";
+import "../chunk-NNGFYYI3.js";
+import "../chunk-3SNEZHBJ.js";
+import "../chunk-VZTAWSAA.js";
+import {
+  __commonJS
+} from "../chunk-GM7WFPGG.js";
+
+// src/mode/tsx.js
+var require_tsx = __commonJS({
+  "src/mode/tsx.js"(exports) {
+    var oop = require_oop();
+    var JavaScriptBehaviour = require_javascript().JavaScriptBehaviour;
+    var JavaScriptFoldMode = require_javascript2().FoldMode;
+    var tsMode = require_typescript().Mode;
+    var Mode = function() {
+      tsMode.call(this);
+      this.$highlightRuleConfig = { jsx: true };
+      this.foldingRules = new JavaScriptFoldMode();
+      this.$behaviour = new JavaScriptBehaviour();
+    };
+    oop.inherits(Mode, tsMode);
+    (function() {
+      this.$id = "ace/mode/tsx";
+    }).call(Mode.prototype);
+    exports.Mode = Mode;
+  }
+});
+export default require_tsx();

@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "ignoreDeprecations": "6.0",
+    "baseUrl": ".",
+    "moduleResolution": "bundler",
+    "paths": {
+      "ace-code": ["src/Utilities/ace/ace/ace.d.ts"],
+      "ace-code/*": ["src/Utilities/ace/ace/*"]
+    }
+  },
+  "include": [
+    "src/**/*.js",
+    "editor/**/*.js",
+    "src/**/*.d.ts"
+  ]
+}

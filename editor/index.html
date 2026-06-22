@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .loader {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            gap: 3vmin;
+        }
+        .loader div {
+            width: 5vmin;
+            height: 5vmin;
+            aspect-ratio: 1;
+            border-radius: 10vmin;
+            background-color: rgb(3, 151, 137);
+            background-size: 50% 50%;
+            background-repeat: no-repeat;
+            background-position: center;
+            animation: bounce 1.5s infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    
+        .loader div:nth-child(1) {
+            animation-delay: 0s;
+        }
+        .loader div:nth-child(2) {
+            animation-delay: -0.15s;
+        }
+        .loader div:nth-child(3) {
+            animation-delay: -0.3s;
+        }
+        .loader div:nth-child(4) {
+            animation-delay: -0.45s;
+        }
+
+        .loader div:nth-child(2n) {
+            background-color: rgb(179, 212, 17);
+        }
+        @keyframes bounce {
+            0%{
+                transform: translateY(-150%);
+                animation-timing-function: cubic-bezier(0.7, 0, 1, 1)
+            }
+            50%{
+                transform: translateY(150%);
+                animation-timing-function: cubic-bezier(0,0, .3, 1)
+            }
+            100%{
+                transform: translateY(-150%);
+            }
+        } 
+        
+        login-page,
+        noci-cms {
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+        }
+
+        body:not([loaded]) login-page,
+        body:not([loaded])  noci-cms {
+            display: none;
+        }
+        body:not([show-login]) login-page {
+            display: none;
+        }
+        body[show-login] noci-cms {
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+    <div class = "loader"> 
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <login-page></login-page>
+    <noci-cms></noci-cms>
+</body>
+<script type="module">
+    import "./index.js"
+</script>
+
+</html>

@@ -1,0 +1,81 @@
+// class DataClass {
+//     /**
+//      * Creates an instance of the class and populates its properties based on the provided arguments object.
+//     * @template {DataClass} T
+//     * @this {new() => T}
+//     * @param {Object} argsObject
+//     * @returns {T}
+//     */
+//     static make(argsObject) {
+//         const instance = new this();
+//         for (const key in instance) {
+//             if (!(instance[key] instanceof Function)) {
+//                 if (key in argsObject) {
+//                     let parser = key + "_parser";
+//                     if (parser in this && this[parser] instanceof Function) {
+//                         instance[key] = this[parser](argsObject[key]);
+//                     } else {
+//                         instance[key] = argsObject[key];
+//                     }
+//                 } else if (instance[key] === undefined) {
+//                     throw new Error(`${this.constructor.name}: Missing required property: ${key}`);
+//                 }
+//             }
+//         }
+
+//         if ("validate" in instance && instance.validate instanceof Function) {
+//             instance.validate();
+//         }
+//         return instance;
+//     }
+
+
+//     /**
+//      * Creates an instance of the class and populates its properties based on the provided arguments object.
+//     * @template {DataClass} T
+//     * @this {new() => T}
+//     * @param {string} url - The URL to load the data from, which should return a JSON object.
+//     * @param {function(number):void} onprogress - An optional callback function that receives progress updates as a number between 0 and 1.
+//     * @returns {Promise<T>}
+//     */
+//     static async load(url, onprogress) {
+//         const data = await loadFile(url, "json", onprogress);
+//         return this.make(data);
+//     }
+// }
+class DataClass {
+}
+
+class Scale extends DataClass {
+    min: number = 0;
+    max: number = 4;
+    step: number = 1;
+    labels: Record<number, string> = {};
+    images: Record<number, string> = {};
+    titles: Record<number, string> = {};
+};
+
+class QuestionOption extends DataClass {
+    title: string = "";
+    value: number = 0;
+    label: string = "";
+    image: string = ""; 
+}
+
+type QuestionOptions = string | Scale | QuestionOption[]
+
+class Question extends DataClass {
+    title: string = "";
+    description: string = "";
+    options: QuestionOptions = [];
+    type: string | undefined = undefined;
+    questions: Question[] = [];
+}
+
+class Quiz extends DataClass {
+    title: string = "";
+    description: string = "";
+    optionsFormats: Record<string, QuestionOptions> = {};
+    questions: Question[] = [];
+}
+

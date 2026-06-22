@@ -1,0 +1,19 @@
+[shadow] {
+    width: 100%;
+    height: 100%;
+}
+
+[shadow] .ace_scroller.ace_scroll-left:after {
+    box-shadow: 17px 0 16px -16px rgb(99 67 55 / 20%) inset;
+}
+
+.ace_gutter-cell.ace_error, 
+.ace_icon.ace_error, 
+.ace_icon.ace_error_fold, 
+.ace_gutter-cell.ace_security, 
+.ace_icon.ace_security, 
+.ace_icon.ace_security_fold {
+    background-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-15 -15 135.76 135.76'%3E%3Cpath d='M52.88,0C23.675,0,0,23.675,0,52.88s23.675,52.88,52.88,52.88,52.88-23.675,52.88-52.88S82.085,0,52.88,0ZM83.618,73.222l-10.396,10.396-20.342-20.342-20.342,20.342-10.396-10.396,20.342-20.342-20.342-20.342,10.396-10.396,20.342,20.342,20.342-20.342,10.396,10.396-20.342,20.342,20.342,20.342Z' fill='%23ec1c24'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: 2px center;
+}
