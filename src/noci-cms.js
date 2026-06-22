@@ -42,7 +42,12 @@ export class NociCMS extends ShadowElement {
         `});
 
         const main = this.createChild("div", {class: "main"});
-        this.fileList = main.createChild("div", {class: "list"});
+        this.fileList = main.createChild("div", {
+            class: "list",
+            events: {
+                click: () => this.select(null, true)
+            }
+        });
         
         const workSection = main.createChild("div", {class: "work-section"});
 
@@ -154,7 +159,7 @@ export class NociCMS extends ShadowElement {
                 class: "list-item", 
                 innerHTML: data[key].title,
                 key: key,
-                events: {click: () => this.select(key, true)}
+                events: {click: (e) => {this.select(key, true); e.stopImmediatePropagation();}}
             });
         }
 
